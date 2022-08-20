@@ -11,8 +11,7 @@ public class JokeController {
 
     /*
         4. Create Jokes Controller with one method mapped to context root - (“/“, “”)
-        5. To the model being returned, add a property of “joke” with value of Chuck Norris quote from
-        service
+        5. To the model being returned, add a property of “joke” with value of Chuck Norris quote from service
         6. Return view name of “index”
      */
     private final QuoteService quoteService;
