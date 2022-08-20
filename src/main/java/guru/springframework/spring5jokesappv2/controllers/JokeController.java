@@ -1,6 +1,6 @@
 package guru.springframework.spring5jokesappv2.controllers;
 
-import guru.springframework.spring5jokesappv2.services.QuoteService;
+import guru.springframework.spring5jokesappv2.services.JokeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,17 +14,17 @@ public class JokeController {
         5. To the model being returned, add a property of “joke” with value of Chuck Norris quote from service
         6. Return view name of “index”
      */
-    private final QuoteService quoteService;
+    private final JokeService service;
 
-    public JokeController(QuoteService quoteService) {
-        this.quoteService = quoteService;
+    public JokeController(JokeService service) {
+        this.service = service;
     }
 
 
     @RequestMapping({"", "/"})
     public String getJoke(Model model) {
 
-        String joke = quoteService.getRandomQuote();
+        String joke = service.getJoke();
         model.addAttribute("joke", joke);
 
         return "index";
