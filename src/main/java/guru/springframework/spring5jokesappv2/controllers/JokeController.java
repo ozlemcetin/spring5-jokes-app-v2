@@ -4,6 +4,7 @@ import guru.springframework.spring5jokesappv2.services.JokeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class JokeController {
@@ -21,12 +22,10 @@ public class JokeController {
     }
 
 
-    @RequestMapping({"", "/"})
-    public String getJoke(Model model) {
+    @RequestMapping(path = {"", "/"}, method = RequestMethod.GET)
+    public String showJoke(Model model) {
 
-        String joke = service.getJoke();
-        model.addAttribute("joke", joke);
-
+        model.addAttribute("joke", service.getJoke());
         return "index";
     }
 }
